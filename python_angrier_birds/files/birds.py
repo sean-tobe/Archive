@@ -336,20 +336,19 @@ curr_time = time.time()
 
 intro = True
 while intro:
-	comm.Barrier()
-	if rank == 0:
-		draw_Image(screen, f1, (0, 0))
-		message_Title(screen, 'ANGRIER  BIRDS', 5)
-		message_Title(screen, '   SEAN TOBE', 450)
-		message_Text(screen, '    This is the first line....', 900)
-		message_Text(screen, 'This goes on to the second.....', 990)
-		message_Text(screen, 'Tour Blog Photos from kateandameer.com expatadventure', 990)
-		message_Title(screen, '                         TIDAL  GROWTH', 5)
-		pygame.display.update()
-	if rank == 1:
-		draw_Image(screen, f2, (0,0))
-		message_Title(screen, 'ANGRIER  BIRDS', 5)
-		pygame.diplay.update()
+	#comm.Barrier()
+	# if rank == 0:
+	# 	draw_Image(screen, f1, (0, 0))
+	# 	message_Title(screen, 'ANGRIER  BIRDS', 5)
+	# 	message_Title(screen, '   SEAN TOBE', 450)
+	# 	message_Text(screen, '    This is the first line....', 900)
+	# 	message_Text(screen, 'This goes on to the second.....', 990)
+	# 	message_Text(screen, 'Tour Blog Photos from kateandameer.com expatadventure', 990)
+	# 	message_Title(screen, '                         TIDAL  GROWTH', 5)
+	# 	pygame.display.update()
+	draw_Image(screen, f2, (0,0))
+	message_Title(screen, 'ANGRIER  BIRDS', 5)
+	pygame.display.update()
 		
 	clock.tick(1)
 	py_time = time.time() - curr_time
@@ -357,30 +356,30 @@ while intro:
 
 running = False
 while running:
-	comm.Barrier()
+	#comm.Barrier()
 	running = update_Flock(flock, flock_data)
 
-	if rank == 0:
-		comm.bcast(flock, root=0)
-		draw_Image(screen, f1, (0,0))
-		flock.update(universe_size, flock)
-		for bird in flock:
-			bird.draw(screen, 0, 0)
-		pygame.display.update()
-	elif rank == 1:
-		comm.bcast(flock, root=0)
-		draw_Image(screen, f2, (0,0))
-		flock.update(universe_size, flock)
-		for bird in flock:
-			bird.draw(screen, universe_size[0], 0)
-		pygame.display.update()
-	elif rank == 2:
-		comm.bcast(flock, root=0)
-		draw_Image(screen, f3, (0,0))
-		flock.update(universe_size, flock)
-		for bird in flock:
-			bird.draw(screen, universe_size[0]*2, 0)
-		pygame.display.update()
+	#if rank == 0:
+		#comm.bcast(flock, root=0)
+	draw_Image(screen, f1, (0,0))
+	flock.update(universe_size, flock)
+	for bird in flock:
+		bird.draw(screen, 0, 0)
+	pygame.display.update()
+	# elif rank == 1:
+	# 	#comm.bcast(flock, root=0)
+	# 	draw_Image(screen, f2, (0,0))
+	# 	flock.update(universe_size, flock)
+	# 	for bird in flock:
+	# 		bird.draw(screen, universe_size[0], 0)
+	pygame.display.update()
+	# elif rank == 2:
+	# 	comm.bcast(flock, root=0)
+	# 	draw_Image(screen, f3, (0,0))
+	# 	flock.update(universe_size, flock)
+	# 	for bird in flock:
+	# 		bird.draw(screen, universe_size[0]*2, 0)
+	# 	pygame.display.update()
 
 	clock.tick(30)
 	print('#####################LOOP######################')
