@@ -1,7 +1,6 @@
 # SEAN TOBE
 # 05/15/2018
-# VIS141A P1
-# source code from smallsurething, updated by sean tobe
+
 import re
 import random
 import socket
