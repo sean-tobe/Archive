@@ -2,6 +2,12 @@
  
 Python_
 
-• birds ∙ 
+• angrier_birds ∙ 
 
-• tidal ∙ 
+• tidal_growth ∙ 
+
+• ml_style ∙ 
+
+• pixelmon ∙ 
+
+• elizabot_net ∙ 
