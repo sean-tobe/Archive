@@ -6,7 +6,7 @@
 /* ===
 ml5 Example
 Style Transfer Mirror Example using p5.js
-This uses a pre-trained model of The Great Wave off Kanagawa and Udnie (Young American Girl, The Dance)
+This uses a pre-trained model of artists, Jane Richsen and Zach Lieberman.
 === */
 
 /* ===
@@ -34,7 +34,7 @@ function setup() {
 
   // Create a new Style Transfer method with a defined style.
   // We give the video as the second argument
-  style = ml5.styleTransfer('models/mathura', video, modelLoaded);
+  style = ml5.styleTransfer('models/zachl', video, modelLoaded);
 }
 
 function draw(){
